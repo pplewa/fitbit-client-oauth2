@@ -46,10 +46,11 @@ function buildTimeSeriesOptions(options) {
     delete options.period;
   }
 
+  options.period = (options.period || options.endDate) ? '/' + (options.period || options.endDate) : '';
   options.url = url.replace('{userId}', options.userId)
     .replace('{resourcePath}', options.resourcePath)
     .replace('{baseDate}', options.baseDate)
-    .replace('{period}', options.period && '/' + options.period);
+    .replace('{period}', options.period);
 
   return options;
 }
