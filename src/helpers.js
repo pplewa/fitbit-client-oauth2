@@ -33,13 +33,12 @@ function createRequestPromise(options) {
 }
 
 function buildTimeSeriesOptions(options) {
-  var url = config.FITBIT_BASE_API_URL + '/1/user/{userId}/{resourcePath}/date/{baseDate}/{period}.json';
+  var url = config.FITBIT_BASE_API_URL + '/1/user/{userId}/{resourcePath}/date/{baseDate}{period}.json';
 
   options = assign({
     userId: '-',
     resourcePath: 'activities/steps',
     baseDate: 'today',
-    period: '1d',
     units: 'IMPERIAL'
   }, options);
 
@@ -50,7 +49,7 @@ function buildTimeSeriesOptions(options) {
   options.url = url.replace('{userId}', options.userId)
     .replace('{resourcePath}', options.resourcePath)
     .replace('{baseDate}', options.baseDate)
-    .replace('{period}', options.endDate ? options.endDate : options.period);
+    .replace('{period}', options.period && '/' + options.period);
 
   return options;
 }
