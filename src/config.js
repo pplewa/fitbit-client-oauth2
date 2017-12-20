@@ -2,7 +2,7 @@ const FITBIT_BASE_API_URL = 'https://api.fitbit.com';
 const FITBIT_BASE_API_URL_TOKEN = 'https://api.fitbit.com';
 const FITBIT_AUTH_PATH = '/oauth2/authorize';
 const FITBIT_TOKEN_PATH = '/oauth2/token';
-const FITBIT_DEFAULT_SCOPE = 'activity heartrate nutrition profile settings sleep social weight';
+const FITBIT_DEFAULT_SCOPE = 'activity location heartrate nutrition profile settings sleep social weight';
 
 module.exports = {
   FITBIT_BASE_API_URL: FITBIT_BASE_API_URL,
