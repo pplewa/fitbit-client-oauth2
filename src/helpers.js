@@ -52,6 +52,12 @@ function buildTimeSeriesOptions(options) {
     .replace('{baseDate}', options.baseDate)
     .replace('{period}', options.period);
 
+  if (options.resourcePath === 'activities/exercise') {
+    options.url = config.FITBIT_BASE_API_URL + '/1/user/{userId}/activities/exercise/{exerciseId}.tcx'
+      .replace('{userId}', options.userId)
+      .replace('{exerciseId}', options.exerciseId)
+  }
+  
   return options;
 }
 
